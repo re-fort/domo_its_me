@@ -1,0 +1,28 @@
+{
+    "name": "DomoItsMe",
+    "description": "Twitter bot",
+    "website": "https://twitter.com/domo_its_me",
+    "repository": "https://github.com/re-fort/domo_its_me",
+    "success_url": "/",
+    "env": {
+        "CONSUMER_KEY": {
+            "description": "Twitter Consumer Key",
+            "required": true
+        },
+        "CONSUMER_SECRET": {
+            "description": "Twitter Consumer Secret",
+            "required": true
+        },
+        "ACCESS_TOKEN_KEY": {
+            "description": "Twitter Access Token Key",
+            "required": true
+        },
+        "ACCESS_SECRET": {
+            "description": "Twitter Access Secret",
+            "required": true
+        }
+    },
+    "addons": [
+        "scheduler:standard"
+    ]
+}
