@@ -6,7 +6,7 @@ Bundler.require
 Dotenv.load
 
 class Tweet
-  @@url = 'http://ja.wikipedia.org/wiki/Special:Randompage'
+  @@url = 'http://ja.wikipedia.org/wiki/'
   @@file_path = './img/save.jpg'
   @@word = 'どうも、$1です。'
 
@@ -21,6 +21,7 @@ class Tweet
   end
 
   def tweet
+    update_profile
     update_profile_image
     update
   end
@@ -28,6 +29,14 @@ class Tweet
   def update
     begin
       @client.update(@@word.gsub('$1', @word))
+    rescue => e
+      STDERR.puts "error => " + e.to_s
+    end
+  end
+
+  def update_profile
+    begin
+      @client.update_profile(url: URI.escape(@@url + @word))
     rescue => e
       STDERR.puts "error => " + e.to_s
     end
